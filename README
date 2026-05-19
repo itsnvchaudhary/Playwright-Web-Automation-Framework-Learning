@@ -1,0 +1,328 @@
+# Playwright Web Automation Framework
+
+## Project Overview
+
+This is a comprehensive **end-to-end (E2E) test automation framework** built with **Playwright** for testing an e-commerce application. The project demonstrates advanced automation testing practices including Page Object Model (POM), API testing, Behavior-Driven Development (BDD), and custom test fixtures.
+
+## Technology Stack
+
+- **Framework**: Playwright v1.59.1
+- **Language**: JavaScript (CommonJS) & TypeScript
+- **Testing Framework**: @playwright/test
+- **BDD Framework**: Cucumber.js v12.8.3
+- **Reporting**: Allure Reports, Playwright Reports, Cucumber HTML Reports
+- **CI/CD**: GitHub Actions
+- **Node.js**: v25.8.2+
+
+## Project Structure
+
+```
+tests/                          # UI Test Cases (JavaScript)
+testTypeScript/                 # UI Test Cases (TypeScript)
+pages/                          # Page Object Model - JavaScript
+pagesTypeScript/                # Page Object Model - TypeScript
+Features/                       # Cucumber feature files & step definitions
+utils/                          # Utility functions - JavaScript
+utilsTypeScript/                # Utility functions - TypeScript
+testdata/                       # Test data in JSON format
+allure-results/                 # Allure test results
+playwright-report/              # Playwright HTML reports
+reports/                        # Additional reports (Cucumber)
+```
+
+## Key Features & Implementation
+
+### 1. **Page Object Model (POM) Pattern**
+
+The framework implements POM for maintainability and reusability:
+
+- **[pages/POManager.js](pages/POManager.js)** - Centralized page manager managing:
+  - LoginPage
+  - DashBoardPage
+  - CartPage
+  - CheckOutPage
+  - ThankYouPage
+
+- **[pagesTypeScript/POManager.ts](pagesTypeScript/POManager.ts)** - TypeScript version with type safety
+
+**Benefits**: Reduces code duplication, improves maintainability, and makes tests more readable.
+
+### 2. **UI Testing**
+
+#### Test Files:
+- **[tests/UiClientTest.spec.js](tests/UiClientTest.spec.js)** - Basic UI workflows
+- **[tests/UiClientTestPOM.spec.js](tests/UiClientTestPOM.spec.js)** - POM implementation with test data fixtures
+- **[testTypeScript/UiClientTestPOM.spec.ts](testTypeScript/UiClientTestPOM.spec.ts)** - TypeScript variant
+
+#### Test Scenarios Covered:
+- Product search and filtering
+- Add to cart functionality
+- Cart validation
+- Checkout flow
+- Order placement and confirmation
+- Order history verification
+
+#### Example Workflow:
+```javascript
+// Login → Select Product → Add to Cart → Checkout → Place Order → Verify
+const poManager = new POManager(page);
+const loginPage = poManager.getLoginPage();
+await loginPage.doLogin(url, email, password);
+
+const dashBoard = poManager.getDashBoardPage();
+await dashBoard.addTOCart(productName);
+
+const cartPage = poManager.getCartPage();
+await cartPage.verifyProductNameOnCartPage(productName);
+```
+
+### 3. **API Testing**
+
+#### Files:
+- **[tests/UiAPITesting.spec.js](tests/UiAPITesting.spec.js)** - Hybrid UI + API testing
+- **[tests/UIAPIinterceptResponse.spec.js](tests/UIAPIinterceptResponse.spec.js)** - API response interception
+- **[utils/APIUtils.js](utils/APIUtils.js)** - API utility functions
+
+#### Capabilities:
+- API authentication and token generation
+- Order creation via API
+- API response mocking and interception
+- Hybrid testing (API + UI)
+- Network request validation
+
+### 4. **Behavior-Driven Development (BDD) with Cucumber**
+
+#### Implementation:
+- **[Features/TestEcommerce.feature](Features/)** - Gherkin feature files
+- **[Features/step_definations/Step.js](Features/step_definations/Step.js)** - Step implementations
+- Cucumber integration with Playwright
+
+#### Supported Scenarios:
+```gherkin
+Scenario: add item to the cart
+  Given login to the e commerce web
+  When we add product to cart
+  Then Verify product in the cart
+  When enter valid details and place the order
+  Then Verify order is present in the order history
+```
+
+**Benefits**: Business-readable tests, non-technical stakeholder engagement, better documentation.
+
+### 5. **Custom Test Fixtures**
+
+- **[utils/CustomTest.js](utils/CustomTest.js)** - JavaScript custom test wrapper
+- **[utilsTypeScript/CustomTest.ts](utilsTypeScript/CustomTest.ts)** - TypeScript version
+
+Custom fixtures provide:
+- Test data injection
+- Automatic fixture setup and teardown
+- Parameterized testing support
+
+### 6. **Test Data Management**
+
+- **[testdata/UiClientTestPom.data.json](testdata/)** - JSON-based test data
+- Supports multiple test scenarios with different credentials and products
+- Easy to maintain and scale test data
+
+### 7. **Advanced Testing Capabilities**
+
+#### Implemented:
+- ✅ Element locators (CSS, XPath, Text-based)
+- ✅ Wait strategies (NetworkIdle, WaitFor)
+- ✅ Multi-page workflows
+- ✅ Form filling and submission
+- ✅ Dropdown selection
+- ✅ Window/Tab handling
+- ✅ Iframe handling
+- ✅ Network interception
+- ✅ Screenshot capture
+- ✅ Trace recording
+
+#### Example Locator Strategies:
+```javascript
+// CSS Selector
+page.locator("[ placeholder*=  'Country' ]")
+
+// Text-based
+page.locator("text=  Add To Cart")
+
+// Attribute matching
+page.locator("[routerlink ='/dashboard/cart']")
+
+// Pseudo-selector
+page.locator("button:has-text('Checkout')")
+```
+
+## Test Reporting
+
+### 1. **Allure Reports**
+- Comprehensive test execution reports
+- Historical trend analysis
+- Screenshot attachments
+- Test categorization
+
+Location: [allure-report/](allure-report/)
+
+Generate reports:
+```bash
+npm run alluregenerate
+npm run allureopen
+```
+
+### 2. **Playwright Reports**
+- Built-in HTML reports
+- Test execution timeline
+- Failed test debugging with traces
+
+Location: [playwright-report/](playwright-report/)
+
+### 3. **Cucumber Reports**
+- HTML formatted BDD reports
+- Feature-wise execution summary
+
+Location: [reports/cucumber-report.html](reports/cucumber-report.html)
+
+## NPM Scripts
+
+```json
+{
+  "test": "npx playwright test --reporter=line,allure-playwright",
+  "api": "npx playwright test --grep @API",
+  "alluregenerate": "npx allure-commandline generate ./allure-results --clean",
+  "allureopen": "npx allure-commandline open ./allure-report",
+  "cucumbertestCases": "cucumber-js --tags \"@regression\" --parallel 2 --format html:cucumberReport.html --retry 1"
+}
+```
+
+### Usage:
+```bash
+# Run all tests
+npm test
+
+# Run only API tests
+npm run api
+
+# Run Cucumber BDD tests with parallelization
+npm run cucumbertestCases
+
+# Generate and open Allure reports
+npm run alluregenerate
+npm run allureopen
+```
+
+## CI/CD Pipeline
+
+- **Platform**: GitHub Actions
+- **Configuration**: [.github/workflows/playwright.yml](.github/workflows/playwright.yml)
+- **Trigger**: Push/Pull requests to main/master branches
+- **Execution**: Automated test runs on ubuntu-latest
+- **Artifacts**: Test reports uploaded for 30 days retention
+
+**Pipeline Steps**:
+1. Checkout code
+2. Setup Node.js (LTS)
+3. Install dependencies
+4. Install Playwright browsers
+5. Run tests
+6. Upload reports
+
+## Key Skills Demonstrated
+
+### Testing Framework Knowledge:
+- ✅ Playwright best practices
+- ✅ Page Object Model design pattern
+- ✅ Test automation architecture
+- ✅ BDD/Cucumber framework integration
+- ✅ API testing and mocking
+
+### Programming Skills:
+- ✅ JavaScript (CommonJS modules)
+- ✅ TypeScript with type safety
+- ✅ Async/Await patterns
+- ✅ Object-oriented design
+- ✅ Functional programming
+
+### DevOps & CI/CD:
+- ✅ GitHub Actions workflow automation
+- ✅ Test reporting and metrics
+- ✅ Artifact management
+- ✅ Parallel test execution
+
+### Testing Practices:
+- ✅ End-to-end (E2E) testing
+- ✅ UI automation
+- ✅ API testing
+- ✅ Hybrid testing (UI + API)
+- ✅ Data-driven testing
+- ✅ BDD testing
+
+## Test Statistics
+
+Current test suite status (from [allure-report/widgets/summary.json](allure-report/widgets/summary.json)):
+- **Total Tests**: 28
+- **Passed**: 27
+- **Failed**: 0
+- **Broken**: 1 (trace artifact issue)
+- **Skipped**: 0
+
+## Getting Started
+
+### Prerequisites:
+```bash
+Node.js v25.8.2 or higher
+npm or yarn package manager
+```
+
+### Installation:
+```bash
+# Clone the repository
+git clone <repo-url>
+
+# Install dependencies
+npm install
+
+# Install Playwright browsers
+npx playwright install
+```
+
+### Run Tests:
+```bash
+# Run all tests
+npm test
+
+# Run specific test file
+npx playwright test tests/UiClientTestPOM.spec.js
+
+# Run in headed mode
+npx playwright test --headed
+
+# Run with debugging
+npx playwright test --debug
+```
+
+## Best Practices Implemented
+
+1. **DRY Principle**: Code reuse through POM and utilities
+2. **Single Responsibility**: Each page class has one job
+3. **Data-Driven Testing**: Separate test data from test logic
+4. **Wait Strategies**: Proper synchronization to avoid flaky tests
+5. **Error Handling**: Comprehensive error messages and traces
+6. **Reporting**: Multiple report formats for different audiences
+7. **CI/CD**: Automated testing in pipeline
+
+## Future Enhancements
+
+- Performance testing metrics
+- Visual regression testing
+- Mobile testing support
+- API contract testing
+- Load testing integration
+- Database validation
+- Jenkins integration option
+
+---
+
+**Framework Version**: Playwright v1.59.1  
+**Last Updated**: 2026 
+**Maintained by**: Test Automation Team

@@ -1,0 +1,21 @@
+https://px.ads.linkedin.com/wa/?medium=fetch&fmt=g
+https://analytics.google.com/g/collect?v=2&tid=G-NVJT9K1HZ2&gtm=45je6551v9237735153za20gzb9237596770zd9237596770&_p=1778151680867&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=723118323&_eu=AEAAAGQC&ae=a&are=1&cid=655424414.1778151684&frm=0&pscdl=noapi&rcb=17&sr=1280x720&uaa=x86&uab=64&uafvl=HeadlessChrome%3B147.0.7727.15%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.15&uam=&uamb=0&uap=Windows&uapv=19.0.0&uaw=0&ul=en-us&gaf=2&_s=2&tag_exp=0~115616985~115938466~115938468~118463262~118719171&dp=%2FloginpagePractise%2F&sid=1778151683&sct=1&seg=0&dl=https%3A%2F%2Frahulshettyacademy.com%2FloginpagePractise%2F&dt=LoginPage%20Practise%20%7C%20Rahul%20Shetty%20Academy&en=scroll&ep.page_url=https%3A%2F%2Frahulshettyacademy.com%2FloginpagePractise%2F&epn.percent_scrolled=90&_et=44&tfd=8531
+https://rahulshettyacademy.com/assets/css/bootstrap.css 200
+https://rahulshettyacademy.com/assets/css/jquery-ui.css 200
+https://rahulshettyacademy.com/assets/css/animate.css 200
+https://rahulshettyacademy.com/assets/css/flaticon.css 200
+https://rahulshettyacademy.com/assets/css/owl.css 200
+https://rahulshettyacademy.com/assets/css/font-awesome.css 200
+https://rahulshettyacademy.com/assets/css/jquery.fancybox.css 200
+https://rahulshettyacademy.com/assets/css/hover.css 200
+https://rahulshettyacademy.com/assets/css/jquery.bootstrap-touchspin.css 200
+https://rahulshettyacademy.com/assets/css/jquery.mCustomScrollbar.min.css 200
+https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Noto+Sans:400,400i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i 200
+https://rahulshettyacademy.com/assets/fonts/glyphicons-halflings-regular.woff2 200
+https://rahulshettyacademy.com/assets/fonts/fontawesome-webfont914c.woff2?v=4.6.1 200
+https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2 200
+https://fonts.gstatic.com/s/lato/v25/S6u_w4BMUTPHjxsI5wq_Gwft.woff2 200
+https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2 200
+https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh50XSwiPGQ.woff2 200
+https://fonts.gstatic.com/s/lato/v25/S6uyw4BMUTPHjx4wXg.woff2 200
+https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh6UVSwiPGQ.woff2 200

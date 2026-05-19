@@ -1,0 +1,22 @@
+[
+    {
+        "login": {
+            "email": "naveen@gamil.comk",
+            "password": "Naveen@123",
+            "url": "https://rahulshettyacademy.com/client/#/auth/login"
+        },
+        "product": {
+            "name": "ZARA COAT 3"
+        }
+    },
+    {
+        "login": {
+            "email": "Castle@gmail.com",
+            "password": "Iamking@000",
+            "url": "https://rahulshettyacademy.com/client/#/auth/login"
+        },
+        "product": {
+            "name": "ADIDAS ORIGINAL"
+        }
+    }
+]
