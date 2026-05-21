@@ -324,7 +324,7 @@ npx playwright test --debug
 ---
 
 
-## Azure Cloud details
+## Azure Cloud details we will remove this later it can be security risk
 - Basics Subscription Azure subscription 1
 - Resource group Playwright
 - Name NavPlaywrightWorkspace
