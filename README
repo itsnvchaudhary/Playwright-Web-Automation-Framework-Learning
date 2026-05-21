@@ -323,6 +323,15 @@ npx playwright test --debug
 
 ---
 
+
+## Azure Cloud details
+- Basics Subscription Azure subscription 1
+- Resource group Playwright
+- Name NavPlaywrightWorkspace
+- Region East US
+- Reporting Enabled
+- Storage account (New) pwstrgplaywright3f22
+
 **Framework Version**: Playwright v1.59.1  
 **Last Updated**: 2026 
 **Maintained by**: Test Automation Team

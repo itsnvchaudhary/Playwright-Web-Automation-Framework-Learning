@@ -2,6 +2,7 @@ const { defineConfig } = require('@playwright/test');
 
 module.exports = defineConfig({
   testDir: './tests',
+  testMatch: '**/*.spec.js',
 // testDir: './testTypeScript',
   timeout: 30 * 1000,
  
@@ -11,10 +12,16 @@ compilerOptions: {
   },
 
 //  reporter: [
+//     [html],
 //     ['list'],
 //     ['allure-playwright'],
 //   ],
-  reporter : 'html',
+ reporter: [
+  ['list'],
+  ['html'],
+  // ['allure-playwright'],
+  ['@azure/playwright/reporter']
+],
 
   retries : 2,
   expect: {
@@ -26,6 +33,6 @@ compilerOptions: {
     headless: false,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    trace: 'on'
+    trace: 'retain-on-failure'
   },
 });
