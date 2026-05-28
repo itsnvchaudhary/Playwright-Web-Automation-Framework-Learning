@@ -3,11 +3,7 @@ const { defineConfig, devices } = require('@playwright/test');
 module.exports = defineConfig({
   testDir: './tests',
   timeout: 30 * 1000,
-  reporter: [
-  ['list'],
-  ['html'],
-  ['@azure/playwright/reporter']
-],
+  reporter: 'html',
   retries : 1,
   workers : 5,
 

@@ -18,6 +18,8 @@ test('Playwright Locator Test', async ({ page }) => {
   // getByRole - radio button
   await page.getByLabel('Employed').check();
 
+
+  
   // submit button
   await page.getByRole('button', { name: 'Submit' }).click();
 
