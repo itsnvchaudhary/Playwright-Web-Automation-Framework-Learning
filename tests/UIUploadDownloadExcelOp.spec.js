@@ -32,7 +32,7 @@ test('Excel Download , Upload and Operation Test', async ({page})=>{
   const dl = await DownloadPromis;
 
   // ✅ minimal fix: valid path
-  const filePath = "C:/Users/n38/Downloads/download.xlsx";
+  const filePath = "/Users/vetviren/Desktop/Interview Preprations/AutomationProjects/Playwright-Web-Automation-Framework-Learning/testdata";
 
   await dl.saveAs(filePath); // ✅ minimal fix
 

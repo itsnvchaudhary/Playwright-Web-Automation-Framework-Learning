@@ -23,7 +23,7 @@ compilerOptions: {
   ['@azure/playwright/reporter']
 ],
 
-  retries : 2,
+  retries : 1,
   expect: {
     timeout: 30 * 1000,
   },
